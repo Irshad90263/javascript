@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        h3 {
+            text-shadow: 0px 0px 10px cyan;
+        }
+
+        .container {
+            height: 600px;
+            width: 500px;
+            background-color: black;
+            border: 1px solid cyan;
+            box-shadow: 0px 0px 30px cyan;
+            margin: 0px auto;
+        }
+
+        #gamearia {
+            width: 100%;
+            height: 549px;
+            border: 1px solid red;
+        }
+
+        #ball {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: red;
+            box-shadow: 0px 0px 10px yellow;
+        }
+
+        #abhay {
+            height: 549px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Catch The Ball</h3>
+    <div class="container">
+        <p>
+            <span id="score">score:</span>00
+        </p>
+        <div id="gamearia">
+            <marquee id="abhay" scrollamount="30" direction="down" behavior="scroll">
+                <div id="ball"></div>
+            </marquee>
+        </div>
+    </div>
+
+    <script>
+        let y = document.getElementById("gamearia");
+
+        function createMarquee() {
+            let nm = document.createElement('marquee');
+            nm.id = "abhay";
+            nm.setAttribute('scrollamount', '30');
+            nm.setAttribute('direction', 'down');
+            nm.setAttribute('behavior', 'scroll');
+            let ball = document.createElement('div');
+            ball.id = "ball";
+            ball.style.position = "absolute";
+            ball.style.height = "20px";
+            ball.style.width = "20px";
+            ball.style.borderRadius = "50%";
+            ball.style.background = "red";
+            ball.style.boxShadow = "0px 0px 10px yellow";
+            y.appendChild(nm);
+            nm.appendChild(ball);
+        }
+
+        function removeMarquee() {
+            let b = document.getElementById("abhay");
+            if (b) {
+                b.remove();
+            }
+        }
+
+        createMarquee();
+
+        setInterval(() => {
+            removeMarquee();
+            setTimeout(createMarquee, 2000); // wait for 2 seconds before creating a new marquee
+        }, 4000); // remove marquee every 4 seconds
+    </script>
+</body>
+</html>

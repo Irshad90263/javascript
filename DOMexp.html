@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom example</title>
+</head>
+<body>
+    <h1 id="title">hello dom</h1>
+    <p class="text">first paragraph</p>
+    <p class="text">second paragraph</p>
+
+
+    <script>
+        // let a=document.getElementById("title");
+        // a.innerText+=" hi";  
+        // console.log(a.innerText);
+
+        // let paras=document.getElementsByClassName("text");
+        // console.log(paras[0].innerText);
+        // console.log(paras[1].innerText);
+
+        // let tag=document.querySelector("p");
+        // console.log(tag.innerText);
+
+        let all=document.querySelectorAll("p");
+        // console.log(all);
+        // console.log(all[0].innerText);
+        // console.log(all[1].innerText);
+        all.forEach((element)=>{
+            console.log(element.innerText);
+        })
+    </script>
+</body>
+</html>

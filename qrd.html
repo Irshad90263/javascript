@@ -1,0 +1,80 @@
+<!-- bar code generator  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BarCode Generator</title>
+  <style>
+    body{
+      font-family: Arial,sans-serif;
+      text-align: center;
+      padding: 40px;
+      background-color: #f4f4f4;
+    }
+    input,button{
+      padding: 10px;
+      margin: 10px;
+      font-size: 16px;
+      width: 250px;
+    }
+    #qr{
+      margin: 20px;
+      margin-left: 40%;
+    }
+  </style>
+</head>
+<body>
+  <h2>UPI Qr Code Generator</h2>
+  <input type="text" id="id" placeholder="Enter UPI id">
+  <!-- <input type="text" id="f" placeholder="Enter Your banking first Name ">
+  <input type="text" id="l" placeholder="Enter Your banking Last Name "> -->
+  <input type="number" id="a" placeholder="Set Amount ">
+  <button onclick="gen()" style="cursor: pointer;">Generate</button>
+
+  <div id="qr"></div>
+  <svg id="barcode"></svg>
+
+
+  <!-- QR Code Library  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- Bar code Library -->
+   <script src="https://cdn.jsdelivr.net/npm/jsbarcode@3.12.1/dist/JsBarcode.all.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jsbarcode/3.12.1/JsBarcode.all.min.js"></script> -->
+
+
+  <script>
+    function gen(){
+      var a=document.getElementById("id").value;
+      // var b=document.getElementById("f").value;
+      // var c=document.getElementById("l").value;
+      var d=document.getElementById("a").value;
+
+      document.getElementById("qr").innerHTML = "";
+      
+      // UPI Qr code without set amount
+      // new QRCode(document.getElementById("qr"),{
+        //   text:"upi://pay?pa="+a+"&pn="+b+"%20"+c+"&aid=uGICAgMCUw7WhNg",
+        //   width:200,
+        //   height:200
+        // });
+
+        // UPI Qr code with set amount
+        new QRCode(document.getElementById("qr"),{
+          text:"upi://pay?pa="+a+"&am="+d+".00",
+          width:200,
+          height:200
+        });
+    }
+  </script>
+</body>
+</html>
+
+<!-- iali7812367@okaxis&am=100.00 -->
+
+<!-- my UPIid abhay= upi://pay?pa=av96514290@oksbi&pn=Abhay%20Vishwakarma&aid=uGICAgMCUw7WhNg -->
+<!-- my UPIid irshad= upi://pay?pa=iali7812367@okaxis&pn=Irshad%20Ali&aid=uGICAgMCUw7WhNg -->
+ <!-- set Amount  -->
+ <!-- upi://pay?pa=av96514290@oksbi&pn=Abhay%20Vishwakarma&am=100.00&cu=INR&aid=uGICAgMCUw7WhNg -->

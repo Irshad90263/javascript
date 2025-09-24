@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event3</title>
+</head>
+<body>
+    <button id="stop">click me</button>
+
+    <script>
+        function sayhi(){
+            alert("hey");
+        }
+        const btn=document.getElementById("stop");
+        btn.addEventListener("click",sayhi);
+
+
+        // remove listener after 5 seconds
+        
+        setTimeout(()=>{
+            btn.removeEventListener("click",sayhi);
+        },5000)
+    </script>
+</body>
+</html>

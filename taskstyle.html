@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body{
+            background-color: white;
+        }
+
+        .area {
+            height: 400px;
+            width: 40%;
+            margin: 10% auto 0;
+            background-color: rgb(253, 253, 250);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #777;
+        }
+        #re{
+            height: 30px;
+            width: 100%;
+        }
+        #re button{
+            height: 40px;
+            width: 18%;
+            border: none;
+            border-radius: 8px;
+            background-color: palegreen;
+            margin-left: 40%;
+            margin-top: 3%;
+            font-size: 25px;
+        }
+        h2{
+            text-align: center;
+            margin-top: 7%;
+        }
+        #in{
+            height: 30px;
+            width: 100%;
+            margin-top: 10px;
+        }
+        #in input{
+            height: 30px;
+            width: 95%;
+            margin-left: 8px;
+            border-radius: 8px;
+            border: 0.1px solid gray;
+            padding-left: 10px;
+        }
+        .fb{
+            height: 30px;
+            width: 100%;
+            margin-top: 15px;
+        }
+        .fb button{
+            height: 30px;
+            width: 30%;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            background-color: rgb(61, 61, 249);
+            margin-left: 13px;
+        }
+        .sb{
+            height: 30px;
+            width: 100%;
+            margin-top: 15px;
+        }
+        .sb button{
+            height: 30px;
+            width: 30%;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            background-color: rgb(61, 61, 249);
+            margin-left: 13px;
+        }
+        .lb{
+           height: 30px;
+            width: 100%;
+        }
+        .lb button{
+            height: 30px;
+            width: 96.50%;
+            margin-left: 10px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: none;
+            background-color: rgb(61, 61, 249);
+            color: white;
+        }
+        #result{
+            height: 50px;
+            width: 96.50%;
+            border: 0.1px solid gray;
+            border-radius: 8px;
+            margin-left: 10px;
+            margin-top: 40px;
+            line-height: 50px;
+            font-size: 20px;
+            box-shadow: 0px 0px 5px gray;
+            text-align: center;
+        
+        }
+    </style>
+</head>
+
+<body>
+    
+        <div class="area">
+            <div id="re"><button onclick="ref()">Refresh</button></div>
+            <h2>Style Your Text</h2>
+            <div id="in"><input id=t1 type="text" placeholder="Type Your Text Her"></div>
+            <div class="fb"><button onclick="Underline()">Underline</button>
+            <button onclick="size()">Increase Font Size</button>
+            <button onclick="bold()">Bold</button></div>
+             <div class="sb"><button onclick="up()">Uppercase</button>
+            <button onclick="lwc()">Lowercase</button>
+            <button onclick="italic()">Italic</button></div>
+            <div class="lb"><button onclick="cap()">Captialize</button></div>
+            <div id="result"></div>
+        </div>
+
+
+
+        <script>
+
+            function ref(){
+                location.reload();
+            }
+            function Underline(){
+                document.getElementById("result").innerHTML=t1.value;
+                document.getElementById("result").style.textDecoration="underline";
+            }
+
+            function bold(){
+                document.getElementById("result").innerHTML=t1.value;
+                document.getElementById("result").style.fontWeight="bold";
+            }
+
+            function size(){
+                document.getElementById("result").innerHTML=t1.value;
+                document.getElementById("result").style.fontSize="40px";
+            }
+
+            function italic(){
+                document.getElementById("result").innerHTML=t1.value;
+                document.getElementById("result").style.fontStyle="italic";
+            }
+
+            function cap(){
+                document.getElementById("result").innerHTML=t1.value;
+                document.getElementById("result").style.textTransform="capitalize";
+            }
+
+            function up(){
+                document.getElementById("result").innerHTML=t1.value;
+                document.getElementById("result").innerText=document.getElementById("result").innerText.toUpperCase();
+            }
+
+            function lwc(){
+                document.getElementById("result").innerHTML=t1.value;
+                document.getElementById("result").innerText=document.getElementById("result").innerText.toLowerCase();
+            }
+        </script>
+    
+</body>
+
+</html>

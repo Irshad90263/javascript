@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    enter first number A: <input type="text" id="t1">
+    <br>
+    enter second number B: <input type="text" id="t2">
+    <br>
+    result: <input type="text" id="t3">
+    <br>
+    <button onclick="add()">add</button>
+
+    <script>
+        function add(){
+            var a=t1.value;
+            var b=t2.value;
+            a=parseInt(a);
+            b=parseInt(b);
+            var c=a+b;
+            t3.value=c;
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click The Box</title>
+    <style>
+        body {
+            background-color: #222;
+            margin: 0;
+            color: white;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        #gamearia {
+            position: relative;
+            margin: 20px auto;
+            background-color: #333;
+            width: 400px;
+            height: 500px;
+            border: 2px solid white;
+        }
+
+        #box {
+            position: absolute;
+            width: 50px;
+            height: 30px;
+            background-color: cyan;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        #result {
+            height: 40px;
+            width: 100px;
+            background-color: #555;
+            margin-left: 700px;
+            color: cyan;
+            line-height: 40px;
+            font-size: 20px;
+            float: left;
+            margin-right: 5px;
+        }
+        #START{
+            height: 40px;
+            width: 100px;
+            background-color: #555;
+            /* margin-left: 700px; */
+            color: cyan;
+            line-height: 40px;
+            font-size: 20px;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Click The Box</h2>
+    <p>Score: <span id="score">0</span></p>
+    <p id="time">TIME: <span id="second">00</span>Sec</p>
+
+    <div id="gamearia">
+        <div id="box">
+            <!-- <button>BOX</button> -->
+        </div>
+    </div>
+    <div id="result"></div>
+    <div onclick="sec()" id="START">START</div>
+
+
+    <script>
+        var box = document.getElementById("box");
+        var gamearia = document.getElementById("gamearia");
+        var scoredisplay = document.getElementById("score");
+        let score = 0;
+        let win = 2;
+        let seconds=20;
+        let timeInterval;
+
+        function movebox() {
+            let x = Math.random() * (gamearia.clientWidth - box.clientWidth);
+            let y = Math.random() * (gamearia.clientHeight - box.clientHeight); ';'
+
+            box.style.left = x + "px";
+            box.style.top = y + "px";
+        }
+        setInterval(movebox, 2000);
+
+        box.addEventListener("click", () => {
+            score++;
+            scoredisplay.textContent = score;
+            // scoredisplay.innerHTML=score;
+            if (score == win) {
+                clearInterval(movebox);
+                document.getElementById("result").innerHTML = "YOU WIN";
+                box.style.display = "none";
+                clearInterval(timeInterval);
+                document.getElementById("time").innerHTML="00:00"
+
+                // time.style.display = "none";
+                
+            }
+        })
+
+        function sec(){
+             if(seconds==-1){
+                // clearInterval(sec);
+                 document.getElementById("result").innerHTML = "YOU LOSE";
+                box.style.display = "none";
+            }
+            else{
+                document.getElementById("second").innerHTML=seconds;
+            seconds--;
+            }
+        }
+        timeInterval=setInterval(sec,1000);
+
+    </script>
+
+</body>
+
+</html>

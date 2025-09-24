@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>image swapping</title>
+    <style>
+        .frame {
+            border: 1px solid black;
+            border-radius: 10px;
+            height: 600px;
+            width: 500px;
+            margin-left: 350px;
+        }
+
+        #main {
+            height: 500px;
+            width: 500px;
+            border: 3px solid red;
+        }
+
+        .mini {
+            height: 100px;
+            width: 100%;
+            margin-left: 100px;
+        }
+
+        .mini img {
+            margin-right: 10px;
+        }
+        .mainframe{
+            height: 500px;
+            width: 500px;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translatex(0px);
+                width: 300px;
+                height: 300px;
+            }
+
+            50% {
+                transform: translate(30px);
+                width: 150px;
+                height: 150px;
+            }
+
+            100% {
+                transform: translate(50px);
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Enter a number <input type="text" id="t1"> <br>
+    Enter b number <input type="text" id="t2"><br>
+    <button onclick="swap()">swap</button><br>
+    After swap <br>
+    A: <input type="text" id="t3"><br>
+    B: <input type="text" id="t4"><br> -->
+
+    <div class="frame">
+        <div class="mainframe">
+            <div id="main">
+                <img id="big" src="image/anime-6083347_1280.jpg" height="100%" width="100%" alt="">
+            </div>
+        </div>
+        <div class="mini">
+            <img onclick="delay(this),slider()" class="miniitem" src="image/naruto-7602910_1280.jpg" height="100px" width="100px"
+                alt="">
+            <img onclick="delay(this),slider()" class="miniitem" src="image/sasuke-uchiha-7285592_1920.jpg" height="100px" width="100px" alt="">
+            <img onclick="delay(this),slider()" class="miniitem" src="image/naruto-8870104_1280.png" height="100px" width="100px" alt="">
+        </div>
+    </div>
+
+    <script>
+        function slider() {
+            document.getElementById("main").style.animation = "slide 3s linear";
+
+        }
+
+        function delay(miniitem){
+            setTimeout(swap(miniitem), 3000);
+        }
+
+        function swap(miniitem) {
+            var a = big.src;
+            big.src = miniitem.src;
+            miniitem.src = a;
+        }
+
+        // function bothcall() {
+        //     slider();
+        //     setTimeout(swap, 3000);
+        // }
+        // function swap(){
+        //     // var a=t1.value;
+        //     // var b=t2.value;
+        //     t3.value=t2.value;
+        //     t4.value=t1.value;
+        //     document.getElementById("t4").style.color="red";
+        // }
+    </script>
+</body>
+
+</html>

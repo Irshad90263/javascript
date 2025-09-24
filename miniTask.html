@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mini task to do</title>
+    <style>
+        #btn1{
+            margin-left: 50px;
+            /* float: left; */
+        }
+        /* #container{
+            float: left;
+        } */
+        /* #containerd{
+            float: left;
+        } */
+    </style>
+</head>
+<body>
+    <!-- input box + btn
+     when clicked: add new <li> to a list
+    each li should also havae delete btn -->
+
+
+   <div class="container">
+     <input id="t1" type="text">
+    <button id="btn1" onclick="add()">add</button>
+   </div>
+    <div id="container"></div>
+    <!-- <div id="containerd"></div> -->
+    
+
+
+
+    <script>
+        function add(){
+            if(t1.value===""){
+                alert("kuch likh le beta");
+            }
+            else{
+                let newpara=document.createElement("li");
+            newpara.innerText=t1.value;
+            document.getElementById("container").appendChild(newpara);
+            let newd=document.createElement("button");
+            newd.innerText="DELETE";
+            newd.onclick=function(){newpara.remove();};
+            newpara.appendChild(newd);
+            t1.value="";
+            }
+            
+        }
+
+        document.getElementById("t1").style.border="none";
+        document.getElementById("t1").style.backgroundColor="blue";
+        document.getElementById("t1").style.borderRadius="20px";
+        document.getElementById("t1").style.color="white";
+    </script>
+</body>
+</html>

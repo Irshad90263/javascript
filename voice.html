@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>voice</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background: #f9fef9;
+        }
+
+        #start {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            font-size: 20px;
+            border: 2px dashed #ccc;
+            background-color: #fff;
+            min-height: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Voice to text(speech recognition)</h2>
+    <button id="start">Start Listening</button>
+    <div id="output" aria-placeholder="Spoken Text will Appear here.."></div>
+
+    <script>
+
+        const output = document.getElementById("output");
+        
+        const startbtn = document.getElementById("start");
+
+        // check browser compatibility
+
+        const speechRecognition = window.speechRecognition || window.webkitSpeechRecognition;
+        if (!speechRecognition) {
+            output.innerText = "Speech Recognition not supported in this browser";
+            startbtn.style.display = "none";
+        }
+        else {
+            const recognition = new speechRecognition();
+            recognition.lang = 'en-US';
+            recognition.continuous = false;  //false means it will give result only one time/true means it will listen and give result reapetedly.
+            recognition.interimResults = false;
+            // recognition.maxAlternatives = 1;  listened words possibility
+
+            startbtn.onclick = () => {
+                recognition.start();
+                startbtn.innerText = "Listening...";
+            };
+            recognition.onresult = (voice) => {
+                const text = voice.results[0][0].transcript;
+                console.log(text);
+                output.innerText = text;
+                startbtn.innerText = "Start Listening";
+                if (text === "YouTube") {
+                    window.open("https://www.youtube.com/", "_blank");
+                }
+                else if (text === "Facebook") {
+                    window.open("https://www.facebook.com/");
+                }
+                else if (text === "LinkedIn") {
+                    window.open("https://in.linkedin.com/");
+                }
+                else {
+                    output.innerText += " ('there is no any applicatin or website like that')";
+                }
+                startbtn.innerText = "Start Listening";
+            }
+            recognition.onerror = (event) => {
+                output.innerText = "Error: " + event.error;
+                startbtn.innerText = "Start Listening";
+            }
+                recognition.onend = () => {
+                    if (startbtn.innerText === "Listening...") {
+                        startbtn.innerText = "Start Listeninng";
+                    }
+                };
+            }
+        
+    </script>
+</body>
+
+</html>

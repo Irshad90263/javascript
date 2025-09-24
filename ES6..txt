@@ -1,0 +1,105 @@
+Es6+concept(let,const,arrowfunction, template littresls, destructure, spred, rest, modules)
+
+1.let: block scoped reassignable.
+2.const:block scoped can not reassignable
+3.arrow function: shorter syntax for function,
+does not bind own this
+
+noraml function
+function add(a,b){
+    return c=a+b;
+}
+
+
+arrow function
+const add=(a,b)=>{
+    return c=a+b;
+}
+
+or
+
+const add=(a,b)=>a+b;
+
+4.template litterels:
+.use backticks (``) for string interpolation and multiline strings
+
+5.distructure:
+.extract values from arrays or objects into variables
+
+
+
+Asynchronus:
+====================
+
+Asynchronus javascript concept:
+-----------------------------
+
+1. callbacks
+ a callback is a function as an arguments to another function to be excecuted later.
+Why is callback?
+
+1. handeling user input or events
+2. making api request or network calls
+3. reading or writing files 
+4. excecuting database quaries
+function callbackfunction(){
+    console.log("callback exccecuted");
+}
+
+function mainfunction(){
+    //do some work
+    callback();
+}
+
+mainfunction(callbackfunction);
+
+how it works:
+1.mainfunction takes a callbackfunction as an arguments.
+2. the mainfinction excecute its own code and then the callback function.
+3. the callback function is excecuted after manifunction has completed its work.
+
+problem: if multiple asynch task depend on each other, callback may become nested.
+
+
+PROMISE:
+============
+Represents a value that may be available now, later or never.
+1.pending: initial state.neither be available npw.later or never
+2.fullfill: promise is fullfiled
+3.rejected: promis is rejected
+
+why use promis:
+-----------------
+
+1. making api request or network calls 
+2. reading or writing files 
+3. excecuting database quaries
+4. handelling user input or events
+
+syntax
+----------
+
+promise.then((value)=>{
+    ///
+})
+.catch((error)=>{
+    
+})
+
+
+Asynch/Await:
+a modern way to handle promise
+
+asynch: makes a function return a promis
+await: pauses excecution untill the promise reslove/rejected
+
+syntax:
+asynch function example(){
+    try{
+        const value=await promise:
+        ///handle succcesfull
+    }
+    catch(error){
+        //handle failded operaion
+    }
+}

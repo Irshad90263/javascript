@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="test2.css">
+    <title>test2</title>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="loan-amnt">
+            <p>Loan Amount</p>
+            <input id="loan" class="left" type="number">
+            <input id="LOANrangeinput" class="range" type="range" value="0" min="0" max="1000000">
+        </div>
+        <div class="roi loan-amnt">
+            <p class="mar">ROI(p.a)</p>
+            <input id="roi" type="number">
+            <input id="ROIrangeinput" class="range" type="range" value="0" min="0" max="1000000">
+        </div>
+        <div class="loan-tenure loan-amnt">
+            <p class="Tmar">Loan tenure</p>
+            <input id="tenure" type="number">
+            <input id="TNRrangeinput" class="range" type="range" value="0" min="0" max="1000000">
+        </div>
+        <div class="details">
+            <ul>
+                <li>Monthly EMI</li>
+                <li>Principle amount</li>
+                <li>Total intrest</li>
+                <li>Total amount</li>
+            </ul>
+        </div>
+        <div class="update-detail">
+            <div id="monthly">0</div>
+            <div id="principle">0</div>
+            <div id="intrest">0</div>
+            <div id="total">0</div>
+        </div>
+        <div class="cal"><button onclick="calculate()">Calculate</button></div>
+    </div>
+
+
+    <!-- graph-part -->
+
+    <div class="graph-section">
+        <div class="showcase">
+            <div class="principle">Principle</div>
+        <div class="intrest">Intrest</div>
+        </div>
+        <div id="circuler-graph">
+            <div id="circle"></div>
+        </div>
+    </div>
+
+
+    <script src="test2.js"></script>
+</body>
+
+</html>

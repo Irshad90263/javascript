@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+        }
+
+        h3 {
+            text-shadow: 0px 0px 10px cyan;
+        }
+
+        .container {
+            height: 600px;
+            width: 500px;
+            background-color: black;
+            border: 1px solid cyan;
+            box-shadow: 0px 0px 30px cyan;
+            margin: 0px auto;
+        }
+
+        #gamearia {
+            width: 100%;
+            height: 549px;
+            /* bottom: 0px; */
+            border: 1px solid red;
+        }
+
+        #ball {
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: red;
+            box-shadow: 0px 0px 10px yellow;
+        }
+
+        #ball2{
+             position: absolute;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background-color: red;
+            box-shadow: 0px 0px 10px yellow;
+        }
+
+        #abhay {
+            height: 550px;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Catch The Ball</h3>
+    <div class="container">
+        <p>
+            <spna id="score">score:</spna>00
+        </p>
+        <div id="gamearia">
+            <marquee id="abhay" scrollamount="30" direction="down" behavior="scroll">
+                <div id="ball">1B</div>
+            </marquee>
+        </div>
+    </div>
+    <button onclick="remove()">swap</button>
+    <button onclick="abh()">swappp</button>
+
+    <script>
+        function moveball() {
+            let x = Math.random() * (gamearia.clientWidth - ball.clientWidth);
+            ball.style.left = x + "px";
+        }
+        // setInterval(moveball,3124);
+
+
+
+        // var a=document.getElementById("scroll");
+        // function swap(){
+        //    a.setAttribute('behavior','slide')
+        // }
+        // function abh(){
+
+        //     // var z= document.getElementById("scroll");
+        //     a.setAttribute('behavior','scroll');
+        // }
+        var a = document.getElementById("abhay");
+        let y = document.getElementById("gamearia");
+        function swap() {
+            if (!document.getElementById('abhay')) {
+                abh();
+            }
+            else {
+                let b = document.getElementById("abhay");
+                b.style.display="none";
+            }
+        }
+        setInterval(swap, 1550);
+
+        function abh() {
+            if (!document.getElementById('abhay')) {
+                let nm = document.createElement('marquee');
+                nm.id = "abhay";
+                nm.setAttribute('behavior', 'scroll');
+                nm.setAttribute('direction', 'down');
+                nm.setAttribute('direction', 'down');
+                nm.setAttribute('scrollamount', '30');
+                nm.innerHTML = "<div id='ball2'>2B</div>";
+                y.appendChild(nm);
+            }
+        }
+    </script>
+</body>
+
+</html>

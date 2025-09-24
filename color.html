@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color 10</title>
+    <style>
+        h1{
+            color: green;
+        }
+        .circle{
+            height: 100px;
+            width: 100px;
+            border-radius: 50%;
+            float: left;
+        }
+        .green{
+            background-color: green;
+            margin-left: 200px;
+        }
+        .red{
+            background-color: red;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+        .black{
+            background-color: black;
+        }
+        .cyan{
+            background-color: cyan;
+        }
+        .blue{
+            background-color: blue;
+        }
+        .gray{
+            background-color: gray;
+        }
+        .orange{
+            background-color: orange;
+        }
+        .pink{
+            background-color: pink;
+        }
+        .skyblue{
+            background-color: skyblue;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <h1 id="a10">10</h1>
+    <div onclick="changecolor(0)" class="green circle"></div>
+    <!-- <button onclick="changecolor()" class="red circle"></button> -->
+     <div onclick="changecolor(1)" class="red circle"></div>
+    <div onclick="changecolor(2)" class="yellow circle"></div>
+    <div onclick="changecolor(3)" class="black circle"></div>
+    <div onclick="changecolor(4)" class="cyan circle"></div>
+    <div onclick="changecolor(5)" class="blue circle"></div>
+    <div onclick="changecolor(6)" class="gray circle"></div>
+    <div onclick="changecolor(7)" class="orange circle"></div>
+    <div onclick="changecolor(8)" class="pink circle"></div>
+    <div onclick="changecolor(9)" class="skyblue circle"></div>
+    </center>
+    
+    <script>
+        // function green(){
+        //     document.getElementById("a10").style.color="green";
+        // }
+        // function red(){
+        //     document.getElementById("a10").style.color="red";
+        // }
+        // function yellow(){
+        //     document.getElementById("a10").style.color="yellow";
+        // }
+        // function black(){
+        //     document.getElementById("a10").style.color="black";
+        // }
+        // function cyan(){
+        //     document.getElementById("a10").style.color="cyan";
+        // }
+        // function blue(){
+        //     document.getElementById("a10").style.color="blue";
+        // }
+        // function gray(){
+        //     document.getElementById("a10").style.color="gray";
+        // }
+        // function orange(){
+        //     document.getElementById("a10").style.color="orange";
+        // }
+        // function pink(){
+        //     document.getElementById("a10").style.color="pink";
+        // }
+        // function skyblue(){
+        //     document.getElementById("a10").style.color="skyblue";
+        // }
+        var colors=["green","red","yellow","black","cyan","blue","gray","orange","'pink","skyblue"];
+        // var i=1;
+        function changecolor(i){
+            document.getElementById("a10").style.color= colors[i];
+        }
+    </script>
+</body>
+</html>

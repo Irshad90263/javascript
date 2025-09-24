@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="voice('ka re abhay tohra ke bujhat naikhe kal test baate')">hi</button>
+    <script>
+        function voice(text){
+            const speech=new SpeechSynthesisUtterance(text);
+            speech.lang='en-US';  //bydefault
+            speech.rate=0.5;
+            speechSynthesis.speak(speech);
+        }
+    </script>
+</body>
+</html>

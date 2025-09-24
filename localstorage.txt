@@ -1,0 +1,8 @@
+local Storage is a key-value Storage mechanism that allows you to store data as stings, number or subjects and also objects, store data in local browser.
+
+
+METHODS:
+1. localStorage.setItem(key,value)
+2. localstorage.getItem(key)
+3. localStorage.remove(key)
+4. localstorage.clear()

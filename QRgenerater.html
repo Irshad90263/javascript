@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QRCode generater</title>
+    <style>
+        body{
+            background-color:black;
+        }
+        .container {
+            height: 600px;
+            width: 800px;
+            border-radius: 20px;
+            box-shadow: 0px 0px 20px cyan;
+            margin: 5% auto 0px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            align-items: center;
+            align-content: center;
+            row-gap: 50px;
+            background-color: #cea3ce
+        }
+
+        .inp1 {
+            height: 5%;
+            width: 35%;
+            /* border: 1px solid red; */
+        }
+
+        #t1 {
+            height: 100%;
+            width: 100%;
+            border-radius: 20px;
+            border: 2px solid cyan;
+            padding-left: 10px;
+            /* background-color: black; */
+            color: white;
+        }
+        #t1:focus{
+            border: 3px solid cyan;
+        }
+        #t1:focus-visible {
+            /* to remove browsers default focus style*/
+            outline: none;
+        }
+
+        .inp2 {
+            height: 5%;
+            width: 35%;
+            /* border: 1px solid red; */
+
+        }
+
+        #t2 {
+            height: 100%;
+            width: 100%;
+            border-radius: 20px;
+            border: 2px solid cyan;
+            padding-left: 10px;
+            /* background-color: black; */
+            color: black;
+        }
+        #t2:focus{
+            border: 3px solid cyan;
+        }
+        #t2:focus-visible {
+            /* to remove browsers default focus style*/
+            outline: none;
+        }
+
+        .btn {
+            height: 6%;
+            width: 10%;
+            position: relative;
+            margin-top: 5px;
+            /* border: 1px solid red; */
+
+        }
+
+        button {
+            height: 100%;
+            width: 100%;
+            border-radius: 20px;
+            border: 2px solid white;
+            font-size: 12px;
+            background-color: black;
+            color: white;
+            /* padding-left: 10px; */
+        }
+        button:hover{
+            background-color: black;
+            border: 2px solid cyan;
+            color: cyan;
+        }
+        #qr{
+            height: 200px;
+            width: 200px;
+            /* border: 2px solid red; */
+        }
+        #hint{
+            height: 100px;
+            width: 100%;
+            text-align: center;
+            line-height: 100px;
+            color: black;
+            font-size: 35px;
+            /* border: 2px solid red; */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="inp1"><input id="t1" type="text" placeholder="Enter Your UPI ID here"></div>
+        <div class="inp2"><input id="t2" type="text" placeholder="Enter Amount here"></div>
+        <div class="btn"><button onclick="generate()">GENERATE</button></div>
+        <div id="qr"></div>
+        <div id="hint"></div>
+    </div>
+
+
+    <!-- QR code js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        function generate(){
+            document.getElementById("qr").innerHTML="";
+            document.getElementById("hint").innerHTM="";
+            new QRCode(document.getElementById("qr"),{
+            text: "upi://pay?pa="+t1.value+"&am="+t2.value,
+            height:200,
+            width:200
+        });
+        document.getElementById("hint").innerHTML="Scan this QR for payment"
+        }
+    </script>
+</body>
+
+</html>

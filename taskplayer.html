@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task player</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css
+">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js
+"></script>
+
+</head>
+
+<body>
+    <div class="container-fluide">
+        <div class="row full-frame">
+            <div class="col-sm-4 buttons">
+                <button onclick="show(0)">Ms Dhoni</button> <br><br>
+                <button onclick="show(1)">Rohit Sharma</button> <br><br>
+                <button onclick="show(2)">Virat Kohli</button> <br><br>
+                <button onclick="show(3)">KL Rahul</button> <br><br>
+                <button onclick="show(4)">Hardik</button> <br><br>
+                <button onclick="show(5)">Bumrah</button> <br><br>
+                <button onclick="show(6)">Chahal</button> <br><br>
+                <button onclick="show(7)">Jadeja</button> <br><br>
+                <button onclick="show(8)">Ashvin</button> <br><br>
+                <button onclick="show(9)">Siraj</button> <br><br>
+                <button onclick="show(10)">Mo. Shami</button> <br><br>
+                <!-- <button onclick="show()">Sanju</button> <br><br>
+                <button onclick="show()">Yuvraj</button> <br><br>
+                <button onclick="show()">Piyush</button> <br><br>
+                <button onclick="show()">Kartik</button> <br><br> -->
+            </div>
+            <div class="col-sm-5" id="about-area">
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+         var images=['image/dhoni.jpeg','image/rohit.jpeg','image/Kohli.jpeg','image/rahul.jpeg','image/hardik.jpeg','image/bumrah.jpeg','image/chahal.jpeg','image/jadeja.jpeg','image/ashviin.jpeg','image/siraj.jpeg','image/shami.jpeg'];
+        function genrateimg() {
+            document.getElementById("about-area").innerHTML = "<img class='varimg' src='image/dhoni.jpeg' height='400px' width='300px'>"
+            // document.getElementById("about-area").src = 'image/sasuke-uchiha-7285592_1920.jpg';
+
+        }
+        function show(x) {
+            genrateimg();
+            // document.getElementById("about-area").src = 'image/sasuke-uchiha-7285592_1920.jpg';
+            document.querySelector("#about-area img").src = images[x];
+        }
+
+        // function change(x){
+           
+        //     varimg.src=images[x];
+        //     x++;
+        // }
+        
+    </script>
+</body>
+
+</html>

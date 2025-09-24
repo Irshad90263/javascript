@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dom append</title>
+</head>
+<body>
+    <div id="container"></div>
+
+
+    <script>
+        let nemElement=document.createElement("p");
+        nemElement.innerText="this is paragraph";
+        document.getElementById("container").appendChild(nemElement);
+
+        //removes
+        let element=document.getElementById("container");
+        element.remove();
+    </script>
+</body>
+</html>

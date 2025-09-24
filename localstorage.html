@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        body {
+            font-family: Arial, Helvetica;
+            padding: 20px;
+            background: white;
+        }
+
+        h2 {
+            color: #444;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #openmodalbtn {
+            background-color: rgb(37, 207, 37);
+            color: white;
+        }
+
+        #openmodalbtn:hover {
+            background-color: rgb(6, 114, 6);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: white;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            padding: 50px;
+        }
+
+        .modal-c {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            width: 350px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            animation: fedin 0.8s;
+        }
+
+        @keyframes fedin {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .close {
+            float: right;
+            cursor: pointer;
+            font-size: 18px;
+            color: #aaa;
+        }
+
+        form label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        form input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            margin-top: 15px;
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Data list with modal form</h2>
+    <button id="openmodalbtn">Add data</button>
+    <div id="datalist"></div>
+    <!-- modal -->
+    <div class="modal" id="mymodal">
+        <div class="modal-c">
+            <span class="close" id="closemodal">&times;</span>
+            <h3>Add data</h3>
+            <form action="" id="dataform">
+                <label for="name"></label>
+                <input type="text" id="nameinput" required>
+                <label for="">email</label>
+                <input type="email" id="eamilinput" required>
+                <label for="">age</label>
+                <input type="number" id="ageinput" required>
+                <!-- gender: <br>
+                 Male<input type="radio" name="gen">
+                 Female<input type="radio" name="gen"> -->
+                <button type="submit">submit</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script>
+        const modal = document.getElementById("mymodal");
+        const openbtn = document.getElementById("openmodalbtn");
+        const closebtn = document.getElementById("closemodal");
+        const form = document.getElementById("dataform");
+        const nameinput = document.getElementById("nameinput");
+        const emailinput = document.getElementById("eamilinput");
+        const ageinput = document.getElementById("ageinput");
+        // show data
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        // renderdata();
+
+        //render data from localstorage
+        
+
+        function renderdata() {
+            let datal = document.getElementById("datalist");
+            datal.innerHTML = "";
+            users.forEach((user,index) => {
+                const div = document.createElement("div");
+                div.className = "item";
+                div.innerHTML = `<span><strong>${user.yname}</strong><br>${user.yemail}| age: ${user.yage}<br>${index}</span>`;
+                const delbtn = document.createElement("button");
+                delbtn.textContent = "DELETE";
+                delbtn.className = "deletebtn";
+                delbtn.onclick = () => deleteData(index);
+                div.appendChild(delbtn)
+                datal.appendChild(div);
+            });
+
+        }
+
+        //delelt data
+
+        function deleteData(index){
+            swal.fire({
+                title:"are you sure?",
+                text:"this user will be dleletd",
+                icon:"warning",
+                showCancelButton:true,
+                confirmButtonColor:"#e74d3c",
+                cancelButtonColor:"#3085d6",
+                confirmButtonText:"yes,delete it"
+            }).then((result)=>{
+                if(result.isConfirmed){
+                    users.splice(index,1);
+                    savedata();
+                    renderdata();
+                    swal.fire("delete!","user has been removed");
+                }
+            })
+        }
+
+
+
+        //open and close btn
+        openbtn.onclick = () => {
+            modal.style.display = "flex";
+            nameinput.focus();
+        }
+
+        closebtn.onclick = () => modal.style.display = "none";
+        window.onclick = (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        //save data
+        function savedata() {
+            localStorage.setItem("users", JSON.stringify(users));
+            // alert('data saved');
+            renderdata();
+        }
+
+        //add user data
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            const name = nameinput.value.trim();
+            const email = emailinput.value.trim();
+            const age = ageinput.value.trim();
+            if (name && email && age) {
+                users.push({ yname: name, yemail: email, yage: age });
+                console.log(users);
+                savedata();
+                form.reset();
+                modal.style.display = "none";
+                swal.fire({
+                    icon: "success",
+                    title: "ser added",
+                    text: `${name} has been added success`,
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+            }
+        }
+        renderdata();
+    </script>
+</body>
+
+</html>

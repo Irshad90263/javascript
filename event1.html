@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>events</title>
+</head>
+<body>
+    <!-- <button onclick="alert('hi')">Click me</button> -->
+     <!-- <button onclick="sayhello()">click me</button> -->
+      <!-- <button id="hi">click me</button> -->
+
+
+
+      <!-- onchange -->
+       <select name="" id="color" onchange="changecolor()">
+          <!-- if we use onchange then its work when we click on select element's option  -->
+       <!-- <select name="" id="color" onclick="changecolor()">  if we use onclick then its work when we click on select element -->
+        <option value="green">GREEN</option>
+        <option value="red">RED</option>
+        <option value="blue">BLUE</option>
+       </select>
+
+
+     <script>
+        // function sayhello(){
+        //     let a=8;
+        //     let c=8;
+        //     let b=a+c;
+        //     alert(b);
+        // }
+        // document.getElementById("hi").onclick=function(){
+        //     alert("hello external event");
+        // }
+
+
+        //onchange
+        //=======
+
+        function changecolor(){
+            let selectedcolor=document.getElementById('color').value;
+            document.body.style.background=selectedcolor;
+            }
+        
+     </script>
+
+</body>
+</html>

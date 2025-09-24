@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook</title>
+    <link rel="icon" href="facebook (1).png">
+    <link rel="stylesheet" href="faceb.css">
+</head>
+
+<body>
+    <div class="top"></div>
+    <div class="main-outer">
+        <div class="main-content">
+            <div class="alignment">
+                <h1>facebook</h1>
+                <p>Facebook helps you connect and share with the people in your life.</p>
+            </div>
+        </div>
+        <div class="login-form">
+            <form action="" id="main-form">
+                <input id="t1" class="same-width" type="text" placeholder="Email address or phone number">
+                <input id="t2" class="same-width" type="text" placeholder="Password">
+                <button id="login" class="same-width">Login</button>
+                <a href="">
+                    forgotten password?
+                </a>
+                <hr>
+                <button class="create">Create new account</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+
+
+<!-- script -->
+ <script>
+    let uid=document.getElementById("t1");
+    let pass=document.getElementById("t2");
+    let login=document.getElementById("login");
+    let form=document.getElementById("main-form")
+    let users=[];
+
+
+    //save data
+    function savedata(){
+        localStorage.setItem("data", JSON.stringify(users))
+    }
+
+    login.onclick=(e)=>{
+        e.preventDefault();
+        let name=uid.value.trim();
+        let password=pass.value.trim();
+        if(name && password){
+        users.push(name,password);
+        savedata();
+        form.reset();
+        }
+    }
+ </script>
+
+</html>

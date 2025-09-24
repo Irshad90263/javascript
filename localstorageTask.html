@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store data to localStorage</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css
+">
+    <style>
+        body {
+            background-color: black;
+        }
+
+        h2 {
+            color: cyan;
+            text-shadow: 0 0 10px white;
+        }
+
+        form {
+            display: none;
+            background-color: black;
+            color: white;
+            box-shadow: 0px 0px 10px cyan;
+            border-radius: 20px;
+            /* width: 70%; */
+        }
+
+        button {
+            border: none;
+            border-radius: 15px;
+            padding: 1%;
+            background-color: rgb(127, 225, 61);
+            color: black;
+        }
+
+        input {
+            border: none;
+            border-radius: 10px;
+            background-color: white;
+            color: black;
+            /* box-shadow: 0 0 10px cyan; */
+        }
+
+        input:focus {
+            border: 3px solid cyan;
+        }
+
+        input:focus-visible {
+            outline: none;
+        }
+
+        #real-form {
+            animation: animate 0.7s;
+        }
+
+        @keyframes animate {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        #close-form {
+            margin-left: 90%;
+            width: 5%;
+            /* float: right; */
+            cursor: pointer;
+            /* text-align: right; */
+            font-size: 50px;
+            /* background-color: red; */
+            color: white;
+            padding-right: 2%;
+        }
+
+        #close-form:hover {
+            /* background-color: white; */
+            color: red;
+        }
+
+        .name {
+            display: flex;
+            justify-content: center;
+        }
+
+        #name {
+            width: 80%;
+        }
+
+        .email {
+            display: flex;
+            justify-content: center;
+        }
+
+        #email {
+            width: 80%;
+        }
+
+        .age {
+            display: flex;
+            justify-content: center;
+        }
+
+        #age {
+            width: 80%;
+        }
+
+        .inp-gap {
+            margin: 4% 0;
+        }
+
+        .subbtn {
+            display: flex;
+            justify-content: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .rdobtnM {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 2% 0 0 0;
+        }
+
+        .rdobtnF {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 0 2% 0;
+        }
+        #datalist{
+            color: white;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <!-- start -->
+
+    <div class="container-fluid">
+        <div class="row heading">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <h2>Fill Your Information To Store It localStorage</h2>
+                <!-- <div id="datalist"></div> -->
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+    
+
+    <!-- open form btn -->
+
+    <div class="container-fluid">
+        <div class="row btn-C">
+            <div class="col-sm-5"></div>
+            <div class="col-sm-2 btn">
+                <button id="form-btn">Open Form</button>
+            </div>
+            <div class="col-sm-5"></div>
+        </div>
+    </div>
+
+    <!-- form section -->
+
+    <div class="container-fluid">
+        <div class="row form-C">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 form">
+                <form action="" id="real-form">
+                    <div id="close-form">&times;</div>
+                    <div class="name inp-gap"><input id="nameinp" type="text" placeholder="Enter your Name"></div>
+                    <div class="email inp-gap"> <input id="emailinp" type="email" placeholder="Enter your Email"></div>
+                    <div class="age inp-gap"><input id="ageinp" type="number" placeholder="Enter your Number"></div>
+                    <p>Choose Your Gender</p>
+                    <div class="rdobtnM">
+                        <label for="m">Male</label>
+                        <input type="radio" id="m" name="gen">
+                    </div>
+                    <div class="rdobtnF">
+                        <label for="f">Female</label>
+                        <input type="radio" id="f" name="gen">
+                    </div>
+                    <div class="subbtn"><button id="submit-btn" type="submit">Submit</button></div>
+                </form>
+                
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+
+<div id="datalist"></div>
+
+    <script>
+        let formbtn = document.getElementById("form-btn");
+        let closebtn = document.getElementById("close-form");
+        let submitbtn = document.getElementById("submit-btn");
+        let realform = document.getElementById("real-form");
+        let nameinp = document.getElementById("nameinp");
+        let emailinp = document.getElementById("emailinp");
+        let ageinp = document.getElementById("ageinp");
+        let users = JSON.parse(localStorage.getItem("user")) ||[];
+
+        formbtn.onclick = () => {
+            realform.style.display = "block";
+            nameinp.focus();
+
+        }
+
+        closebtn.onclick = () => {
+            realform.style.display = "none";
+        }
+
+        function savedata(){
+            localStorage.setItem("user",JSON.stringify(users));
+        }
+
+        function showdata(){
+            let out = "";
+            users.forEach((user,index) => {
+                // let datalist=document.getElementById("datalist");
+                // datalist.innerHTML="";
+                // let div=document.createElement("div");
+                // div.className="datalists";
+                // div.innerHTML=`<span><strong>${index}${user.yourname}<br>${user.youremail}<br>${user.yourage}</strong></span>`;
+                out +=`
+                <span><strong>${index+1}<br>${user.yourname}<br>${user.youremail}<br>${user.yourage}</strong></span><br><hr>
+                `
+                // div.appendChild(datalist);
+                
+                document.getElementById("datalist").innerHTML = out;
+            });
+        }
+
+        realform.onsubmit = (n)=> {
+            n.preventDefault();
+            let name = nameinp.value.trim();
+            let email = emailinp.value.trim();
+            let age = ageinp.value.trim();
+            if (name && email && age) {
+                users.push({
+                    yourname: name,
+                    youremail: email,
+                    yourage: age
+                });
+                console.log(users);
+                savedata();
+                realform.reset();
+                realform.style.display="none";
+                showdata();
+            }
+
+        }
+        showdata();
+    </script>
+
+</body>
+
+</html>

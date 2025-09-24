@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event4</title>
+    <style>
+        #box{
+            height: 200px;
+            width: 200px;
+            background-color: cyan;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+
+    <script>
+        const box=document.getElementById("box");
+        box.addEventListener("mouseover",()=>box.style.backgroundColor="green");
+        box.addEventListener("mouseleave",()=>box.style.backgroundColor="red");
+        // box.removeEventListener("mouseover",()=>box.style.backgroundColor="green")  my logic
+        setTimeout(()=>{
+            box.removeEventListener("mouseover",()=>box.style.backgroundColor="green");
+        },3000)
+        // box.addEventListener("mouseout",()=>box.style.backgroundColor="cyan");
+    </script>
+</body>
+</html>
