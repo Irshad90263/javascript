@@ -4,6 +4,12 @@
 // console.log(a);
 
 
+// var a=12;
+// var a=13;
+// console.log(a);
+
+
+
 
 // let a=12;
 // if (true){
