@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .red{
+            color: red;
+        }
+        .blue{
+            color: blue;
+        }
+        .noclass{
+            background-color: blueviolet;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="red blue">with class</h1>
+    <h1>without class</h1>
+
+
+    <script>
+        let a=document.querySelectorAll("h1");
+        console.log(a);
+
+        // remove class 
+        a[0].classList.remove('blue');
+        a[1].classList.add('noclass');
+
+        // toggle (it remove class if added and add class if not added)
+        a[0].classList.toggle("red")
+        
+    </script>
+</body>
+</html>
