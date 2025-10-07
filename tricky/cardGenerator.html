@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card{
+           padding: 50px;
+            border: 1px solid gray;
+            display: inline-block;
+            margin: 2px;
+        }
+        form {
+            padding: 50px;
+            border: 1px solid gray;
+            display: inline-block;
+            margin: 2px;
+        }
+
+        input {
+            display: block;
+            margin: 10px 0px;
+        }
+        .img{
+            object-fit: cover;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <form action="">
+        <input type="text" placeholder="type your profile src here...">
+        <input type="text" placeholder="type your name">
+        <input type="text" placeholder="type your title">
+        <button type="submit">get your id card</button>
+    </form>
+    </div>
+
+    <script>
+        let inp = document.querySelectorAll('input');
+        let form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let src = inp[0].value;
+            let name = inp[1].value;
+            let title = inp[2].value;
+            if (!src || !name || !title) {
+                alert('please fill all fields')
+            }
+            let cardDiv = document.createElement('div');
+            cardDiv.className="card";
+            let cardImg = document.createElement('img');
+            let cardName = document.createElement('h2');
+            let cardTitle = document.createElement('p');
+
+            cardImg.src=src;
+            cardImg.classList.add('img');
+            cardName.textContent=name;
+            cardTitle.textContent=title;
+
+            cardDiv.appendChild(cardImg);
+            cardDiv.appendChild(cardName);
+            cardDiv.appendChild(cardTitle);
+
+            let main=document.querySelector('.main');
+            main.appendChild(cardDiv);
+
+
+        })
+    </script>
+</body>
+
+</html>

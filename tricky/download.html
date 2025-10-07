@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            display: none;
+        }
+        button{
+            border: none;
+            border-radius: 10px;
+            background-color: rgb(35, 198, 35);
+            padding: 5px;
+            margin: 50px;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <input type="file">
+    <button>Upload Here...</button>
+
+    <script>
+        let inp=document.querySelector('input');
+        let btn=document.querySelector('button');
+
+        btn.addEventListener('click', (e)=>{
+            e.preventDefault();
+             inp.click();
+        });
+
+        inp.addEventListener('change', (e)=>{
+            console.log(e);
+            let file=e.target.files[0];
+            if(file){
+                btn.textContent=file.name;
+            }
+        });
+    </script>
+</body>
+</html>

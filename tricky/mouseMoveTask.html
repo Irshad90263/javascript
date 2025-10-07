@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            cursor: none;
+            overflow-x: hidden;
+        }
+        .circle{
+            cursor: none;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: black;
+            position: absolute;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="circle"></div>
+
+    <script>
+        let circle=document.querySelector('div');
+        document.addEventListener('mousemove', (e)=>{
+            circle.style.left=`${e.x}px`;
+            circle.style.top=`${e.y}px`;
+            document.style.overflowx="hidden"
+        })
+    </script>
+</body>
+</html>
