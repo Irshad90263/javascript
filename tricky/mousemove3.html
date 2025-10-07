@@ -1,0 +1,10 @@
+<div id="colorBox" style="width:200px; height:200px; background:red;"></div>
+
+<script>
+  const box = document.getElementById("colorBox");
+
+  box.onmousemove = () => {
+    box.style.backgroundColor = `rgb(${Math.random()*255}, ${Math.random()*255}, ${Math.random()*255})`;
+    box.style.transition=".2s all"
+  };
+</script>

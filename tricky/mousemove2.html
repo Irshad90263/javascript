@@ -1,0 +1,11 @@
+<div id="area" style="width:300px; height:200px; background:lightgreen;"></div>
+<p id="pos"></p>
+
+<script>
+  const box = document.getElementById("area");
+  const pos = document.getElementById("pos");
+
+  box.addEventListener("mousemove", (e) => {
+    pos.textContent = `Mouse: ${e.clientX}, ${e.clientY}`;
+  });
+</script>

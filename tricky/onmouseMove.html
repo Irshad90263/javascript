@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h3>Move your mouse over this box 👇</h3>
+
+    <div 
+      onmousemove="showCoords(event)" 
+      style="width:300px; height:200px; background:lightblue; border:2px solid #000;">
+    </div>
+
+    <p id="output"></p>
+
+    <script>
+      function showCoords(e) {
+        document.getElementById("output").innerText =
+         ` X: ${e.offsetX}, Y: ${e.offsetY}`;
+      }
+    </script>
+  </body>
+</html>
